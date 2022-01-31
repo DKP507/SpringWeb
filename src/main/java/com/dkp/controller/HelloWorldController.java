@@ -1,5 +1,7 @@
 package com.dkp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +21,26 @@ public class HelloWorldController {
 	
 
 	@RequestMapping(value ="/hello", method = RequestMethod.GET)
-	public String sayHelloAgain(ModelMap model) {
+	public String sayHelloAgain(HttpServletRequest req,ModelMap model) {
 		
-		model.addAttribute("greetings", "Welcome to my page, this is the secon time greeting");
+		String name =  req.getParameter("name");
 		
-		return "welcome";
+		String pass = req.getParameter("pass");
+		
+		if(name.toLowerCase().equals("prasad")&& pass.toLowerCase().equals("admin")) {
+			
+			model.addAttribute("greetings","YOU are the ADMIN COOL");
+			
+			return "admin";
+			
+		}else {
+
+			model.addAttribute("greetings", "Welcome Gerneral AREA");
+			
+			return "welcome";
+		}
+		
+		
 	}
 	
 }
