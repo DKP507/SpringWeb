@@ -10,6 +10,8 @@
 		base-package="com.dkp.controller" />
 
 	<mvc:annotation-driven />
+	
+	<mvc:resources location="/resources/theme/" mapping="/resources/**" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
