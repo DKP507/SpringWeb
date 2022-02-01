@@ -2,17 +2,23 @@ package com.dkp.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
+
 public class HelloWorldController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	private Log logger =  LogFactory.getLog(getClass());   
+	
+	@RequestMapping(value ="/welcome", method = RequestMethod.GET)
 	public String sayHello(ModelMap model) {
+		
+		logger.info(" sayHello ");
 		
 		model.addAttribute("greetings", "Welcome to my page");
 		
@@ -23,17 +29,21 @@ public class HelloWorldController {
 	@RequestMapping(value ="/hello", method = RequestMethod.GET)
 	public String sayHelloAgain(HttpServletRequest req,ModelMap model) {
 		
-		String name =  req.getParameter("name");
+		String name =  req.getParameter("name") != null ? req.getParameter("name") : "name" ;
 		
-		String pass = req.getParameter("pass");
+		String pass = req.getParameter("pass") != null ? req.getParameter("pass") : "pass";
 		
 		if(name.toLowerCase().equals("prasad")&& pass.toLowerCase().equals("admin")) {
+			
+			logger.info(" sayHelloAgain - ADMIN ");
 			
 			model.addAttribute("greetings","YOU are the ADMIN COOL");
 			
 			return "admin";
 			
 		}else {
+			
+			logger.info(" sayHelloAgain -  GENARAL ");
 
 			model.addAttribute("greetings", "Welcome Gerneral AREA");
 			
