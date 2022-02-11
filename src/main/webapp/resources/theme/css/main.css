@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 
 h1 {
-	color: red;
+	color: rgb(0, 64, 128);
 }
 
 h5 {
-	color: aqua;
+	color: rgb(255, 128, 0);
 }
