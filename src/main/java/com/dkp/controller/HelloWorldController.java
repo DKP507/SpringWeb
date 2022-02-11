@@ -25,6 +25,19 @@ public class HelloWorldController {
 		return "welcome";
 	}
 	
+	@RequestMapping(value ="/setting", method = RequestMethod.GET)
+	public String getSettings(ModelMap model) {
+		
+		logger.info(" Settings Controller ");
+		
+		String prop = System.getProperties().toString();
+		
+		model.addAttribute("set", prop);
+		
+		return "properties";
+	}
+	
+	
 
 	@RequestMapping(value ="/hello", method = RequestMethod.GET)
 	public String sayHelloAgain(HttpServletRequest req,ModelMap model) {
