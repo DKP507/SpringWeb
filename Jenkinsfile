@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    
+    enviroment {
+        workspace =  "${workspace}"
+    }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building.. This is the Value' workspace  
             }
         }
         stage('Test') {
