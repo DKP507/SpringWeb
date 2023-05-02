@@ -9,7 +9,7 @@
 	<description>Test Project</description>
 
 	<properties>
-		<springframework.version>5.2.20.RELEASE</springframework.version>
+		<springframework.version>6.0.8</springframework.version>
 	</properties>
 
 	<build>
