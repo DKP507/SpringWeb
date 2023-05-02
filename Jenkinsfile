@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building.. This is the Value' + ${workspace}
+                echo 'Building..'
             }
         }
         stage('Test') {
@@ -20,6 +20,10 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         }
     }
 }
