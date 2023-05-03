@@ -24,6 +24,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "WorkSpace - ${env.WORKSPACE} on - ${env.WORKSPACE_TMP} BUIL URL- ${env.BUILD_URL}"
             }
         }
     }
