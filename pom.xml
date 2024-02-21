@@ -9,7 +9,7 @@
 	<description>Test Project</description>
 
 	<properties>
-		<springframework.version>6.0.8</springframework.version>
+		<springframework.version>6.0.14</springframework.version>
 	</properties>
 
 	<build>
@@ -19,7 +19,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://10.0.0.46:6001/manager/text</url>
+					<url>http://10.X.X:6001/manager/text</url>
 					<path>/MySecondWeb</path>
 					<!-- Set update to true to avoid exist war package can not be override 
 						error -->
