@@ -19,8 +19,6 @@ pipeline {
                 sh "echo $USER_CREDENTIALS_PSW"
             }
         }
-    }
-    stages {
         stage('Build') {
             steps {
                 echo 'Building..'
