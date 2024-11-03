@@ -1,6 +1,16 @@
 pipeline {
     agent any
-
+    environment {
+        WAR_FILE = 'path/to/yourapp.war'
+        REMOTE_HOST = 'yourRemoteHost'
+        REMOTE_PORT = '8880'
+        ADMIN_USER = 'yourAdminUser'
+        ADMIN_PASS = 'yourAdminPassword'
+        NODE_NAME = 'yourNodeName'
+        SERVER_NAME = 'yourServerName'
+        APP_NAME = 'yourAppName'
+        CONN_TYPE = 'SOAP'
+    }
     stages {
         stage('Build') {
             steps {
