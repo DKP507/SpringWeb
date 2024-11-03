@@ -10,6 +10,15 @@ pipeline {
         SERVER_NAME = 'yourServerName'
         APP_NAME = 'yourAppName'
         CONN_TYPE = 'SOAP'
+        USER_CREDENTIALS = credentials('USER_PASSWORD')
+    }
+    stages {
+        stage('Run') {
+            steps {
+                sh "echo $USER_CREDENTIALS_USR"
+                sh "echo $USER_CREDENTIALS_PSW"
+            }
+        }
     }
     stages {
         stage('Build') {
