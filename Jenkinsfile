@@ -1,14 +1,12 @@
 pipeline {
     agent any
-    
-    environment {
-        USER_CREDENTIALS = credentials('dkpsena')
-    }
+
     stages {
-        stage('Run') {
+        stage('Example Stage') {
             steps {
-                sh "echo $USER_CREDENTIALS_USR"
-                sh "echo $USER_CREDENTIALS_PSW"
+                withCredentials([usernamePassword(credentialsId: 'my-secret-cred', variable: 'MY_SECRET')]) {
+                    sh "echo My secret value: ${MY_SECRET}"
+                }
             }
         }
         stage('Build') {
