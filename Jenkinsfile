@@ -2,13 +2,11 @@ pipeline {
     agent any
     environment {
         WAR_FILE = 'path/to/yourapp.war'
-        REMOTE_HOST = 'yourRemoteHost'
-        REMOTE_PORT = '8880'
-        ADMIN_USER = 'yourAdminUser'
+        REMOTE_HOST = '10.0.0.102'
+        REMOTE_PORT = '9043'
+        ADMIN_USER = 'dkpsena'
         ADMIN_PASS = 'yourAdminPassword'
-        NODE_NAME = 'yourNodeName'
-        SERVER_NAME = 'yourServerName'
-        APP_NAME = 'yourAppName'
+        APP_NAME = 'SpringWeb'
         CONN_TYPE = 'SOAP'
         USER_CREDENTIALS = credentials('dkpsena')
     }
