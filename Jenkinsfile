@@ -10,7 +10,7 @@ pipeline {
         SERVER_NAME = 'yourServerName'
         APP_NAME = 'yourAppName'
         CONN_TYPE = 'SOAP'
-        USER_CREDENTIALS = credentials('USER_PASSWORD')
+        USER_CREDENTIALS = credentials('dkpsena')
     }
     stages {
         stage('Run') {
@@ -19,6 +19,17 @@ pipeline {
                 sh "echo $USER_CREDENTIALS_PSW"
             }
         }
+        stage('Example Stage') {
+
+            steps {
+
+                withCredentials([usernamePassword(credentialsId: 'dkpsena', variable: 'MY_SECRET')]) {
+
+                    sh "echo My secret value: ${MY_SECRET}"
+
+                }
+
+            }
         stage('Build') {
             steps {
                 echo 'Building..'
