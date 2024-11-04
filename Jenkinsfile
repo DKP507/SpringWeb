@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Example Stage') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'my-secret-cred', variable: 'MY_SECRET')]) {
+                withCredentials([usernamePassword(credentialsId: 'dkpsena', variable: 'MY_SECRET')]) {
                     sh "echo My secret value: ${MY_SECRET}"
                 }
             }
