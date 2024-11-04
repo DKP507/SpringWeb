@@ -11,18 +11,6 @@ pipeline {
                 sh "echo $USER_CREDENTIALS_PSW"
             }
         }
-        stage('Example Stage') {
-
-            steps {
-
-                withCredentials([usernamePassword(credentialsId: 'dkpsena', variable: 'MY_SECRET')]) {
-
-                    sh "echo My secret value: ${MY_SECRET}"
-
-                }
-
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building..'
